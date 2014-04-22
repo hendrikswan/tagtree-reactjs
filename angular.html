@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" ng-app="tagtree">
+<head>
+    <script src="bower_components/angular/angular.js"></script>
+    <link  href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<script>
+    var app = angular.module('tagtree', []);
+
+    app.controller('EpisodesCtrl', function ($scope) {
+        $scope.viewEpisode = function(episode){
+            episode.viewed = true;
+        }
+
+        $scope.episodes = [{
+            title : "Angular with Yeoman",
+            link: 'http://tagtree.tv/angular-with-yeoman',
+            date: new Date(2013,11,14)
+        },{
+            title : "Using D3 with Rickshaw and Angular",
+            link: 'http://tagtree.tv/d3-with-rickshaw-and-angular',
+            date: new Date(2013,11,30),
+        },{
+            title : "Canvas with paper.js",
+            link: 'http://tagtree.tv/canvas-with-paper-js',
+            date: new Date(2014,0,29),
+        },{
+            title : "Express.js middleware",
+            link: 'http://tagtree.tv/expressjs-middleware',
+            date: new Date(2014,1,10),
+        },{
+            title : "MEAN stack - episode 1",
+            link: 'http://tagtree.tv/mean-stack-episode1',
+            date: new Date(2014,1,18),
+        },{
+            title : "ES6 - episode 1",
+            link: 'http://tagtree.tv/ecmascript-6-episode-1',
+            date: new Date(2014,2,7),
+        },{
+            title : "MEAN stack - episode 2",
+            link: 'http://tagtree.tv/mean-stack-episode2',
+            date: new Date(2014,2,10),
+        },{
+            title : "ES6 - episode 2",
+            link: 'http://tagtree.tv/ecmascript-6-episode-2',
+            date: new Date(2014,2,18),
+        },{
+            title : "ES6 - episode 3",
+            link: 'http://tagtree.tv/ecmascript-6-episode-3',
+            date: new Date(2014,2,24),
+        },{
+            title : "ES6 - episode 4",
+            link: 'http://tagtree.tv/ecmascript-6-episode-4',
+            date: new Date(2014,3,5),
+        }];
+  });
+</script>
+</head>
+<body>
+    <div class="container"  ng-controller="EpisodesCtrl">
+        <div class="spacer">
+            <div class="row ">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <input ng-model="filterTextInput" type="search" class="form-control" placeholder="Search for episode" />
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="episode in episodes">
+                                <td>{{episode.title}}</td>
+                                <td>
+                                    <a href="#" ng-click="viewEpisode(episode);">
+                                        <div ng-if="!episode.viewed">
+                                            View
+                                        </div>
+                                        <div ng-if="episode.viewed">
+                                            View (again)
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
