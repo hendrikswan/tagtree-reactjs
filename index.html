@@ -104,48 +104,11 @@
         });
 
 
-        var episodes = [{
-              title : "Angular with Yeoman",
-              link: 'http://tagtree.tv/angular-with-yeoman',
-              date: new Date(2013,11,14)
-          },{
-              title : "Using D3 with Rickshaw and Angular",
-              link: 'http://tagtree.tv/d3-with-rickshaw-and-angular',
-              date: new Date(2013,11,30),
-          },{
-              title : "Canvas with paper.js",
-              link: 'http://tagtree.tv/canvas-with-paper-js',
-              date: new Date(2014,0,29),
-          },{
-              title : "Express.js middleware",
-              link: 'http://tagtree.tv/expressjs-middleware',
-              date: new Date(2014,1,10),
-          },{
-              title : "MEAN stack - episode 1",
-              link: 'http://tagtree.tv/mean-stack-episode1',
-              date: new Date(2014,1,18),
-          },{
-              title : "ES6 - episode 1",
-              link: 'http://tagtree.tv/ecmascript-6-episode-1',
-              date: new Date(2014,2,7),
-          },{
-              title : "MEAN stack - episode 2",
-              link: 'http://tagtree.tv/mean-stack-episode2',
-              date: new Date(2014,2,10),
-          },{
-              title : "ES6 - episode 2",
-              link: 'http://tagtree.tv/ecmascript-6-episode-2',
-              date: new Date(2014,2,18),
-          },{
-              title : "ES6 - episode 3",
-              link: 'http://tagtree.tv/ecmascript-6-episode-3',
-              date: new Date(2014,2,24),
-          },{
-              title : "ES6 - episode 4",
-              link: 'http://tagtree.tv/ecmascript-6-episode-4',
-              date: new Date(2014,3,5),
-          }
-        ];
+
+        var episodes = [];
+        for(var i=0; i< 10000; i++){
+            episodes.push({title: 'This is episode # ' + i, viewed: false, date: new Date()});
+        }
 
         React.renderComponent(<FilterableEpisodeTable episodes={episodes} />, document.getElementById('container'));
 
